@@ -3,23 +3,15 @@ package main
 import "testing"
 
 func TestSum(t *testing.T) {
-	numbers := [5]int{1, 2, 3, 4, 5}
 
-	output := Sum(numbers)
-	expected_output := 15
+	t.Run("sum array using simple for", func(t *testing.T) {
+		numbers := []int{1, 2, 3, 4, 5}
 
-	if output != expected_output {
-		t.Errorf("got '%d' want '%d' given '%v'", output, expected_output, numbers)
-	}
-}
+		output := Sum(numbers)
+		expected_output := 15
 
-func TestSumWithRange(t *testing.T) {
-	numbers := [5]int{1, 2, 3, 4, 5}
-
-	output := SumWithRange(numbers)
-	expected_output := 15
-
-	if output != expected_output {
-		t.Errorf("got '%d' want '%d' given '%v'", output, expected_output, numbers)
-	}
+		if output != expected_output {
+			t.Errorf("got '%d' want '%d' given '%v'", output, expected_output, numbers)
+		}
+	})
 }
