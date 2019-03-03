@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 
@@ -12,6 +15,15 @@ func TestSum(t *testing.T) {
 
 		if output != expected_output {
 			t.Errorf("got '%d' want '%d' given '%v'", output, expected_output, numbers)
+		}
+	})
+
+	t.Run("sum all slices and return a new slice containing the result", func(t *testing.T) {
+		output := SumAll([]int{1, 2, 3}, []int{4, 5, 6, 7})
+		expected_output := []int{6, 22}
+
+		if !reflect.DeepEqual(output, expected_output) {
+			t.Errorf("got '%v' want '%v'", output, expected_output)
 		}
 	})
 }
